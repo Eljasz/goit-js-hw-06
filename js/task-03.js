@@ -13,11 +13,13 @@ const images = [
   },
 ];
 const list = document.querySelector('ul');
+console.log(list);
+list.style.listStyle = 'none';
 list.style.display = 'flex';
-const li = images.map(el => {
-  const item = document.createElement('li');
-  item.insertAdjacentHTML('afterbegin', `<img src = ${el.url} alt = ${el.alt}>`);
-  return item;
-});
+const li = images.map(
+  el => `<li><img src = ${el.url} alt = ${el.alt} width = 300px height = 250px></li>`
+);
 
-list.append(...li);
+const string = li.join('');
+
+list.insertAdjacentHTML('afterbegin', string);
