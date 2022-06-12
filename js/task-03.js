@@ -13,7 +13,11 @@ const images = [
   },
 ];
 const list = document.querySelector('ul');
-images.forEach(el => {
-  list.insertAdjacentHTML('afterbegin', `<li><img src = ${el.url} alt = ${el.alt}></li>`);
-  list.style.display = 'flex';
+list.style.display = 'flex';
+const li = images.map(el => {
+  const item = document.createElement('li');
+  item.insertAdjacentHTML('afterbegin', `<img src = ${el.url} alt = ${el.alt}>`);
+  return item;
 });
+
+list.append(...li);
